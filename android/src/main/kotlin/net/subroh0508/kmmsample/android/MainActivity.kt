@@ -2,6 +2,9 @@ package net.subroh0508.kmmsample.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -32,8 +35,38 @@ class MainActivity : AppCompatActivity() {
             addItemDecoration(dividerItemDecoration)
         }
 
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.search -> {
+                    onClickSearchMenu(menuItem)
+                    return@setOnMenuItemClickListener true
+                }
+            }
+
+            return@setOnMenuItemClickListener false
+        }
+
         viewModel.uiModel.onEach {
             idolsAdapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+
+        return true
+    }
+
+    private fun onClickSearchMenu(item: MenuItem) {
+        val searchView = item.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                viewModel.search(newText)
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String?) = true
+        })
     }
 }
