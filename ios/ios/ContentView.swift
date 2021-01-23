@@ -6,8 +6,12 @@ func greet() -> String {
 }
 
 struct ContentView: View {
+    let idols = ["浅倉透", "樋口円香", "市川雛菜", "福丸小糸"]
+
     var body: some View {
-        Text(greet())
+        NavigationView {
+            List()
+        }
     }
 }
 
