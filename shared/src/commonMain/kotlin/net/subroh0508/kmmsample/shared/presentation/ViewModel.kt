@@ -3,5 +3,5 @@ package net.subroh0508.kmmsample.shared.presentation
 import kotlinx.coroutines.CoroutineScope
 
 expect abstract class ViewModel constructor(coroutineScope: CoroutineScope? = null) {
-    protected val viewModelScope: CoroutineScope
+    val viewModelScope: CoroutineScope
 }

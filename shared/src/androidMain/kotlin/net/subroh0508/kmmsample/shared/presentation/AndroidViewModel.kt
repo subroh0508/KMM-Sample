@@ -5,5 +5,5 @@ import androidx.lifecycle.viewModelScope as androidViewModelScope
 import androidx.lifecycle.ViewModel as AndroidViewModel
 
 actual abstract class ViewModel actual constructor(coroutineScope: CoroutineScope?) : AndroidViewModel() {
-    protected actual val viewModelScope = coroutineScope ?: androidViewModelScope
+    actual val viewModelScope = coroutineScope ?: androidViewModelScope
 }
