@@ -29,7 +29,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         collectionView.dataSource = self
 
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: view.bounds.width, height: 50)
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 82)
+        flowLayout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = flowLayout
     }
     
