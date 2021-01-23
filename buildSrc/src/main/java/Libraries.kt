@@ -4,13 +4,17 @@ object Libraries {
     object Jetpack {
         private const val coreVersion = "1.3.1"
         private const val appCompatVersion = "1.2.0"
-        private const val constraintLayoutVersion = "2.0.2"
+        private const val activityVersion = "1.2.0-rc01"
+        private const val constraintLayoutVersion = "2.0.4"
+        private const val recyclerViewVersion = "1.1.0"
         private const val materialVersion = "1.2.1"
         private const val lifecycleVersion = "2.3.0-rc01"
 
         const val core = "androidx.core:core-ktx:$coreVersion"
         const val appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+        const val activity = "androidx.activity:activity-ktx:$activityVersion"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+        const val recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
         const val material = "com.google.android.material:material:$materialVersion"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
         const val commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
