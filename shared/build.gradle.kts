@@ -14,7 +14,15 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(Libraries.Serialization.core)
+                implementation(Libraries.Coroutines.core)
+                implementation(Libraries.Ktor.client)
+                implementation(Libraries.Ktor.serialization)
+                implementation(Libraries.Ktor.json)
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -23,7 +31,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(Libraries.Jetpack.material)
+                implementation(Libraries.Jetpack.viewModel)
+                implementation(Libraries.Jetpack.commonJava8)
             }
         }
         val androidTest by getting {
