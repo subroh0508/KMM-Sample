@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-IL-0wX" customClass="IdolCollectionCell" customModule="ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tV-lC-COs">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yomi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1N-Q8-t3s">
+                        <rect key="frame" x="0.0" y="29" width="250" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="T1N-Q8-t3s" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="794-RW-EO6"/>
+                <constraint firstAttribute="trailing" secondItem="8tV-lC-COs" secondAttribute="trailing" id="A1t-ou-7oT"/>
+                <constraint firstAttribute="trailing" secondItem="T1N-Q8-t3s" secondAttribute="trailing" id="Owi-eu-gF7"/>
+                <constraint firstAttribute="bottom" secondItem="T1N-Q8-t3s" secondAttribute="bottom" id="Tak-8A-vOS"/>
+                <constraint firstItem="8tV-lC-COs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cG9-hr-z7o"/>
+                <constraint firstItem="8tV-lC-COs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gmj-hE-kHc"/>
+                <constraint firstItem="T1N-Q8-t3s" firstAttribute="top" secondItem="8tV-lC-COs" secondAttribute="bottom" constant="8" symbolic="YES" id="rip-94-SoL"/>
+                <constraint firstItem="T1N-Q8-t3s" firstAttribute="top" secondItem="8tV-lC-COs" secondAttribute="bottom" constant="8" symbolic="YES" id="zZC-gH-QLh"/>
+            </constraints>
+            <size key="customSize" width="250" height="50"/>
+            <connections>
+                <outlet property="name" destination="8tV-lC-COs" id="ma0-ua-eR6"/>
+                <outlet property="yomi" destination="T1N-Q8-t3s" id="h3i-Yl-qwM"/>
+            </connections>
+            <point key="canvasLocation" x="-231.8840579710145" y="109.82142857142857"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -16,8 +16,10 @@
 		7555FFA1242A565B00829871 /* iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* iosUITests.swift */; };
 		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
 		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C8B34AA125BC8855002BCD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B34AA025BC8855002BCD03 /* Main.storyboard */; };
+		C88F14C925BCA6CF000F0DA7 /* IdolCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F14C725BCA6CF000F0DA7 /* IdolCollectionCell.swift */; };
+		C88F14CA25BCA6CF000F0DA7 /* IdolCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88F14C825BCA6CF000F0DA7 /* IdolCollectionCell.xib */; };
 		C8B34AAD25BC89E0002BCD03 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B34AAC25BC89E0002BCD03 /* MainViewController.swift */; };
+		C8B34ACA25BC9CC0002BCD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B34ACC25BC9CC0002BCD03 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +68,11 @@
 		7555FFA0242A565B00829871 /* iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosUITests.swift; sourceTree = "<group>"; };
 		7555FFA2242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7555FFB1242A642300829871 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
-		C8B34AA025BC8855002BCD03 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C88F14C725BCA6CF000F0DA7 /* IdolCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdolCollectionCell.swift; sourceTree = "<group>"; };
+		C88F14C825BCA6CF000F0DA7 /* IdolCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdolCollectionCell.xib; sourceTree = "<group>"; };
 		C8B34AAC25BC89E0002BCD03 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C8B34ACB25BC9CC0002BCD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8B34ACF25BC9CE0002BCD03 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +130,10 @@
 				7555FF84242A565B00829871 /* Assets.xcassets */,
 				7555FF89242A565B00829871 /* LaunchScreen.storyboard */,
 				7555FF8C242A565B00829871 /* Info.plist */,
+				C88F14C725BCA6CF000F0DA7 /* IdolCollectionCell.swift */,
+				C88F14C825BCA6CF000F0DA7 /* IdolCollectionCell.xib */,
 				7555FF86242A565B00829871 /* Preview Content */,
-				C8B34AA025BC8855002BCD03 /* Main.storyboard */,
+				C8B34ACC25BC9CC0002BCD03 /* Main.storyboard */,
 				C8B34AAC25BC89E0002BCD03 /* MainViewController.swift */,
 			);
 			path = ios;
@@ -254,6 +261,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 7555FF72242A565900829871;
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
@@ -275,7 +283,8 @@
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
 				7555FF88242A565B00829871 /* Preview Assets.xcassets in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
-				C8B34AA125BC8855002BCD03 /* Main.storyboard in Resources */,
+				C8B34ACA25BC9CC0002BCD03 /* Main.storyboard in Resources */,
+				C88F14CA25BCA6CF000F0DA7 /* IdolCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +332,7 @@
 				C8B34AAD25BC89E0002BCD03 /* MainViewController.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
+				C88F14C925BCA6CF000F0DA7 /* IdolCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +376,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		C8B34ACC25BC9CC0002BCD03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8B34ACB25BC9CC0002BCD03 /* Base */,
+				C8B34ACF25BC9CE0002BCD03 /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -373,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -433,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
