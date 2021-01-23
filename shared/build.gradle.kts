@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    `android-multiplatform`
 }
 
 kotlin {
@@ -24,7 +23,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation(Libraries.Jetpack.material)
             }
         }
         val androidTest by getting {
@@ -35,15 +34,6 @@ kotlin {
         }
         val iosMain by getting
         val iosTest by getting
-    }
-}
-
-android {
-    compileSdkVersion(29)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
     }
 }
 
