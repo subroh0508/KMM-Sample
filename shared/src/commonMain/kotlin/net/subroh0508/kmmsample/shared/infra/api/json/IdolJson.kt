@@ -10,6 +10,6 @@ data class IdolJson(
     val color: Map<String, String>,
     val age: Map<String, String>,
     val birthplace: Map<String, String>,
-    val hobbies: Map<String, String>,
+    val hobby: Map<String, String>,
     val idollistUrl: Map<String, String>,
 )

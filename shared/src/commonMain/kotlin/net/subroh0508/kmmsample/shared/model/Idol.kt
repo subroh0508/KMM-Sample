@@ -5,7 +5,7 @@ data class Idol(
     val name: String,
     val yomi: String,
     val color: String,
-    val age: Int,
+    val age: String,
     val birthplace: String,
     val hobbies: List<String>,
     val idollistUrl: String,

@@ -3,6 +3,7 @@ package net.subroh0508.kmmsample.shared.infra.repository
 import net.subroh0508.kmmsample.shared.infra.api.ImasparqlClient
 import net.subroh0508.kmmsample.shared.infra.api.internal.HOSTNAME
 import net.subroh0508.kmmsample.shared.infra.api.internal.ImasparqlApiClient
+import net.subroh0508.kmmsample.shared.infra.api.internal.URLEncoder
 import net.subroh0508.kmmsample.shared.infra.api.internal.httpClient
 import net.subroh0508.kmmsample.shared.infra.api.json.IdolJson
 import net.subroh0508.kmmsample.shared.model.Idol
@@ -17,11 +18,12 @@ class IdolsRepository(
 
     private fun buildQuery(queryStr: String?) = buildString {
         append("$ENDPOINT_MAIN?output=json&query=")
-        append("""
+        append(URLEncoder.encode(
+            """
             PREFIX schema: <http://schema.org/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX imas: <https://sparql.crssnky.xyz/imasrdf/URIs/imas-schema.ttl#>
-            PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
             SELECT *
             WHERE {
@@ -43,7 +45,8 @@ class IdolsRepository(
               BIND (REPLACE(str(?s), '${ESCAPED_ENDPOINT_RDFS_DETAIL}', '') as ?id)
             }
             ORDER BY ?yomi
-        """.trimIndentAndBr())
+            """.trimIndentAndBr()
+        ))
     }
 
     private fun String.trimIndentAndBr() = trimIndent().replace("[\n\r]", "")
@@ -52,13 +55,13 @@ class IdolsRepository(
         val id = json.id["value"] ?: return@let null
         val name = json.name["value"] ?: return@let null
         val yomi = json.yomi["value"] ?: return@let null
-        val color = json.color["value"] ?: return@let null
+        val color = json.color["value"] ?: "000000"
         val age = json.age["value"] ?: return@let null
         val birthplace = json.birthplace["value"] ?: return@let null
-        val hobby = json.hobbies["value"] ?: return@let null
+        val hobby = json.hobby["value"] ?: return@let null
         val idollistUrl = json.idollistUrl["value"] ?: return@let null
 
-        Idol(id, name, yomi, "#$color", age.toInt(), birthplace, listOf(hobby), idollistUrl)
+        Idol(id, name, yomi, "#$color", age, birthplace, listOf(hobby), idollistUrl)
     }
 
     companion object {

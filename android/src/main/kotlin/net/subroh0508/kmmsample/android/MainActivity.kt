@@ -13,10 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import net.subroh0508.kmmsample.android.databinding.ActivityMainBinding
+import net.subroh0508.kmmsample.shared.infra.repository.IdolsRepository
 import net.subroh0508.kmmsample.shared.presentation.IdolsViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: IdolsViewModel by viewModels()
+    private val viewModel: IdolsViewModel by viewModels { IdolsViewModel.Factory(IdolsRepository()) }
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val idolsAdapter by lazy { IdolsAdapter(layoutInflater, viewModel) }
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         viewModel.uiModel.onEach {
             idolsAdapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.search()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
