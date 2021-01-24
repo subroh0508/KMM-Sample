@@ -27,7 +27,7 @@ object Libraries {
     }
 
     object Coroutines {
-        private const val version = "1.4.2"
+        private const val version = "1.4.2-native-mt"
 
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"

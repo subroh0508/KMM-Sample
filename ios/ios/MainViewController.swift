@@ -13,14 +13,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let idols = [
-        Idol(id: "Asakura_Toru", name: "浅倉透", yomi: "あさくらとおる", color: "#50D0D0", age: 17, birthplace: "東京", hobbies: ["映画やドラマを見ること"], idollistUrl: "https://idollist.idolmaster-official.jp/detail/50001"),
-        Idol(id: "Higuchi_Madoka", name: "樋口円香", yomi: "ひぐちまどか", color: "#BE1E3E", age: 17, birthplace: "東京", hobbies: ["別にないです"], idollistUrl: "https://idollist.idolmaster-official.jp/detail/50018"),
-        Idol(id: "Fukumaru_Koito", name: "福丸小糸", yomi: "ふくまるこいと", color: "#7967C3", age: 16, birthplace: "東京", hobbies: ["読書"], idollistUrl: "https://idollist.idolmaster-official.jp/detail/50019"),
-        Idol(id: "Ichikawa_Hinana", name: "市川雛菜", yomi: "いちかわひなな", color: "#FFC639", age: 15, birthplace: "神奈川", hobbies: ["なんでもそれなりに好き～"], idollistUrl: "https://idollist.idolmaster-official.jp/detail/50004"),
-    ]
-    
-    let viewModel = IdolsViewModel()
+    var uiModel = IdolsUiModel(items: [], query: nil)
+    private let viewModel = IdolsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +31,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
 
         viewModel.getUiModel { uiModel in
             print(uiModel)
+            self.uiModel = uiModel
             self.collectionView.reloadData()
         }
     }
@@ -46,20 +41,21 @@ class MainViewController: UIViewController, UISearchBarDelegate {
 
         if let word = searchBar.text {
             print(word)
+            viewModel.search(query: word)
         }
     }
 }
 
 extension MainViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(IdolsUiModelKt.itemCount(viewModel.uiModel))
+        return uiModel.items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IdolCollectionCell", for: indexPath)
 
         if let cell = cell as? IdolCollectionCell {
-            cell.bind(item: IdolsUiModelKt.getItem(viewModel.uiModel, position: Int32(indexPath.row)))
+            cell.bind(item: uiModel.items[indexPath.row])
         }
 
         return cell
