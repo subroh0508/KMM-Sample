@@ -14,7 +14,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var uiModel = IdolsUiModel(items: [], query: nil)
-    private let viewModel = IdolsViewModel()
+    private let viewModel = IdolsViewModelKt.create()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
             self.uiModel = uiModel
             self.collectionView.reloadData()
         }
+
+        viewModel.search(query: "")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

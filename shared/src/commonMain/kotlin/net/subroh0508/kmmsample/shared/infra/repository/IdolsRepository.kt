@@ -29,15 +29,15 @@ class IdolsRepository(
             WHERE {
               ?s a imas:Idol;
                 schema:name ?name;
-                imas:Title ?title;   
+                imas:Title ?title;
                 imas:Color ?color;
                 foaf:age ?age;
                 schema:birthPlace ?birthplace;
-                imas:IdolListURL ?idollistUrl.   
+                imas:IdolListURL ?idollistUrl.
               {
                 SELECT ?s (GROUP_CONCAT(?hobby; separator = ',') as ?hobbies)
                 WHERE {
-                  ?s imas:Hobby ?hobby.  
+                  ?s imas:Hobby ?hobby.
                 }
                 GROUP BY ?s
               }
