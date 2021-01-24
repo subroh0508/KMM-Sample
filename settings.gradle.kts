@@ -10,6 +10,9 @@ pluginManagement {
 rootProject.name = "KMM-Sample"
 
 
-include(":android")
-include(":shared")
+include(
+    ":android:app",
+    ":android:components",
+    ":shared"
+)
 
