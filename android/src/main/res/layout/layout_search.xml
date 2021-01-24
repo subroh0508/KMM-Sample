@@ -17,5 +17,6 @@
         android:background="@android:color/transparent"
         android:inputType="text"
         android:hint="@string/hint_search"
+        android:textColor="?attr/colorOnPrimary"
         android:textColorHint="?attr/colorOnPrimary"/>
 </RelativeLayout>
