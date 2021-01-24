@@ -20,6 +20,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         Idol(id: "Ichikawa_Hinana", name: "市川雛菜", yomi: "いちかわひなな", color: "#FFC639", age: 15, birthplace: "神奈川", hobbies: ["なんでもそれなりに好き～"], idollistUrl: "https://idollist.idolmaster-official.jp/detail/50004"),
     ]
     
+    let viewModel = IdolsViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,11 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 82)
         flowLayout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = flowLayout
+
+        viewModel.getUiModel { uiModel in
+            print(uiModel)
+            self.collectionView.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -45,14 +52,14 @@ class MainViewController: UIViewController, UISearchBarDelegate {
 
 extension MainViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return idols.count
+        return Int(IdolsUiModelKt.itemCount(viewModel.uiModel))
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IdolCollectionCell", for: indexPath)
 
         if let cell = cell as? IdolCollectionCell {
-            cell.bind(item: idols[indexPath.row])
+            cell.bind(item: IdolsUiModelKt.getItem(viewModel.uiModel, position: Int32(indexPath.row)))
         }
 
         return cell
