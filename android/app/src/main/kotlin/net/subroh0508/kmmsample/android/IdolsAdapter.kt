@@ -1,10 +1,11 @@
 package net.subroh0508.kmmsample.android
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.subroh0508.kmmsample.android.databinding.ListitemIdolBinding
-import net.subroh0508.kmmsample.shared.model.Idol
+import net.subroh0508.kmmsample.shared.data.model.Idol
 import net.subroh0508.kmmsample.shared.presentation.IdolsViewModel
 import net.subroh0508.kmmsample.shared.presentation.getItem
 import net.subroh0508.kmmsample.shared.presentation.getItemId
