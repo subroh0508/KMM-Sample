@@ -13,6 +13,7 @@ rootProject.name = "KMM-Sample"
 include(
     ":android:app",
     ":android:components",
-    ":shared"
+    ":shared",
+    ":shared:data:model"
 )
 
