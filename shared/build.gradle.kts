@@ -11,13 +11,15 @@ kotlin {
         binaries {
             framework {
                 baseName = "shared"
+
+                export(project(":shared:data:model"))
             }
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":shared:data:model"))
+                api(project(":shared:data:model"))
                 implementation(Libraries.Serialization.core)
                 implementation(Libraries.Coroutines.core)
                 implementation(Libraries.Ktor.client)
