@@ -33,8 +33,14 @@ class IdolsRepository(
                 imas:Color ?color;
                 foaf:age ?age;
                 schema:birthPlace ?birthplace;
-                imas:Hobby ?hobby;
                 imas:IdolListURL ?idollistUrl.   
+              {
+                SELECT ?s (GROUP_CONCAT(?hobby; separator = ',') as ?hobbies)
+                WHERE {
+                  ?s imas:Hobby ?hobby.  
+                }
+                GROUP BY ?s
+              }
               FILTER (lang(?name) = 'ja')
               FILTER (str(?title) != '1st Vision')
               ${queryStr?.let {"FILTER (regex(?name, '.*$it.*', 'i') || regex(?yomi, '.*$it.*', 'i'))." } ?: ""}
@@ -58,10 +64,10 @@ class IdolsRepository(
         val color = json.color["value"] ?: "000000"
         val age = json.age["value"] ?: return@let null
         val birthplace = json.birthplace["value"] ?: return@let null
-        val hobby = json.hobby["value"] ?: return@let null
+        val hobbies = json.hobbies["value"] ?: return@let null
         val idollistUrl = json.idollistUrl["value"] ?: return@let null
 
-        Idol(id, name, yomi, "#$color", age, birthplace, listOf(hobby), idollistUrl)
+        Idol(id, name, yomi, "#$color", age, birthplace, hobbies.split(","), idollistUrl)
     }
 
     companion object {
