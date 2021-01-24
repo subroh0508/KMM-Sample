@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is necessary because match_parent will not work properly unless wrapped in RelativeLayout. -->
+<!-- @see https://stackoverflow.com/a/22840600 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/query"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="12dp"
+        android:drawableStart="@drawable/ic_search_24dp"
+        android:drawablePadding="12dp"
+        android:drawableEnd="@drawable/ic_close_24dp"
+        android:background="@android:color/transparent"
+        android:inputType="text"
+        android:hint="@string/hint_search"
+        android:textColorHint="?attr/colorOnPrimary"/>
+</RelativeLayout>

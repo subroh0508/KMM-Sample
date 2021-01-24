@@ -2,9 +2,12 @@ package net.subroh0508.kmmsample.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
+import android.view.MotionEvent
+import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -61,19 +64,41 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
 
+        val searchItem = menu?.findItem(R.id.search) ?: return true
+        val searchView = searchItem.actionView.findViewById<EditText>(R.id.query)
+
+        searchView.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) = Unit
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = viewModel.search(s?.toString())
+        })
+        searchView.onEndDrawableClick {
+            searchView.setText("")
+            searchItem.collapseActionView()
+        }
+
         return true
     }
 
     private fun onClickSearchMenu(item: MenuItem) {
-        val searchView = item.actionView as SearchView
+        val searchView = item.actionView.findViewById<EditText>(R.id.query)
 
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(newText: String): Boolean {
-                viewModel.search(newText)
-                return true
-            }
-
-            override fun onQueryTextSubmit(query: String?) = true
+        searchView.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) = Unit
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = viewModel.search(s?.toString())
         })
+    }
+}
+
+private fun EditText.onEndDrawableClick(block: (EditText) -> Unit) {
+    setOnTouchListener { v, event ->
+        val endDrawable = compoundDrawables[2] ?: return@setOnTouchListener false
+
+        if (event.action == MotionEvent.ACTION_UP && (v.width - endDrawable.bounds.width()) <= event.x) {
+            block(this)
+        }
+
+        false
     }
 }

@@ -21,11 +21,11 @@ class IdolsViewModel(
         IdolsUiModel(idolsLoadState)
     }.distinctUntilChanged().stateIn(viewModelScope, SharingStarted.Eagerly, IdolsUiModel())
 
-    fun search(query: String = "") {
+    fun search(query: String? = null) {
         val job = viewModelScope.launch(start = CoroutineStart.LAZY) {
             runCatching {
                 withContext(Dispatchers.Default) {
-                    repository.search(query.takeIf(String::isNotBlank))
+                    repository.search(query)
                 }
             }
                 .onSuccess {
