@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import shared
+import iosArtifacts
 
 class IdolCollectionCell: UICollectionViewCell {
     @IBOutlet weak var name: UILabel!

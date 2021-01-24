@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import shared
+import iosArtifacts
 
 class MainViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!

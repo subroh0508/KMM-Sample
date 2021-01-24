@@ -14,12 +14,12 @@
 		7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF89242A565B00829871 /* LaunchScreen.storyboard */; };
 		7555FF96242A565B00829871 /* iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF95242A565B00829871 /* iosTests.swift */; };
 		7555FFA1242A565B00829871 /* iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* iosUITests.swift */; };
-		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
-		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C88F14C925BCA6CF000F0DA7 /* IdolCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F14C725BCA6CF000F0DA7 /* IdolCollectionCell.swift */; };
 		C88F14CA25BCA6CF000F0DA7 /* IdolCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88F14C825BCA6CF000F0DA7 /* IdolCollectionCell.xib */; };
 		C8B34AAD25BC89E0002BCD03 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B34AAC25BC89E0002BCD03 /* MainViewController.swift */; };
 		C8B34ACA25BC9CC0002BCD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B34ACC25BC9CC0002BCD03 /* Main.storyboard */; };
+		C8E0C7DC25BDDE5900A8FB6E /* iosArtifacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E0C7DB25BDDE5900A8FB6E /* iosArtifacts.framework */; };
+		C8E0C7DD25BDDE5A00A8FB6E /* iosArtifacts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8E0C7DB25BDDE5900A8FB6E /* iosArtifacts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */,
+				C8E0C7DD25BDDE5A00A8FB6E /* iosArtifacts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +73,7 @@
 		C8B34AAC25BC89E0002BCD03 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C8B34ACB25BC9CC0002BCD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8B34ACF25BC9CE0002BCD03 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		C8E0C7DB25BDDE5900A8FB6E /* iosArtifacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iosArtifacts.framework; path = "components/build/xcode-frameworks/iosArtifacts.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7555FFB2242A642300829871 /* shared.framework in Frameworks */,
+				C8E0C7DC25BDDE5900A8FB6E /* iosArtifacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +169,7 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8E0C7DB25BDDE5900A8FB6E /* iosArtifacts.framework */,
 				7555FFB1242A642300829871 /* shared.framework */,
 			);
 			name = Frameworks;
@@ -180,7 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "ios" */;
 			buildPhases = (
-				7555FFB5242A651A00829871 /* ShellScript */,
+				7555FFB5242A651A00829871 /* Run Script */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -305,7 +307,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7555FFB5242A651A00829871 /* ShellScript */ = {
+		7555FFB5242A651A00829871 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,13 +316,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :ios:components:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -515,7 +518,10 @@
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator14.3]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../shared/build/xcode-frameworks",
+					"$(PROJECT_DIR)/components/build/xcode-frameworks",
+				);
 				INFOPLIST_FILE = ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +543,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../shared/build/xcode-frameworks",
+					"$(PROJECT_DIR)/components/build/xcode-frameworks",
+				);
 				INFOPLIST_FILE = ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
