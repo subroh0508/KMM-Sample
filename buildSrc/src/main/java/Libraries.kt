@@ -40,9 +40,18 @@ object Libraries {
 
         const val client = "io.ktor:ktor-client-core:$version"
         const val clientOkHttp = "io.ktor:ktor-client-okhttp:$version"
+        const val clientIos = "io.ktor:ktor-client-ios:$version"
+        const val clientLogging = "io.ktor:ktor-client-logging:$version"
         const val json = "io.ktor:ktor-client-json:$version"
         const val serialization = "io.ktor:ktor-client-serialization:$version"
 
         const val clientMock = "io.ktor:ktor-client-mock:$version"
+    }
+
+    object Okhttp3 {
+        private const val version = "4.6.0"
+
+        const val client = "com.squareup.okhttp3:okhttp:$version"
+        const val loggingIntercerptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
 }
