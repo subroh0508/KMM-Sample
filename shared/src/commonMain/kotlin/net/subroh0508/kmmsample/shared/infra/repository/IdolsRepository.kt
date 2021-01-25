@@ -1,12 +1,12 @@
 package net.subroh0508.kmmsample.shared.infra.repository
 
 import net.subroh0508.kmmsample.shared.data.model.Idol
-import net.subroh0508.kmmsample.shared.infra.api.ImasparqlClient
-import net.subroh0508.kmmsample.shared.infra.api.internal.HOSTNAME
-import net.subroh0508.kmmsample.shared.infra.api.internal.ImasparqlApiClient
-import net.subroh0508.kmmsample.shared.infra.api.internal.URLEncoder
-import net.subroh0508.kmmsample.shared.infra.api.internal.httpClient
-import net.subroh0508.kmmsample.shared.infra.api.json.IdolJson
+import net.subroh0508.kmmsample.shared.api.ImasparqlClient
+import net.subroh0508.kmmsample.shared.api.internal.HOSTNAME
+import net.subroh0508.kmmsample.shared.api.internal.ImasparqlApiClient
+import net.subroh0508.kmmsample.shared.api.internal.URLEncoder
+import net.subroh0508.kmmsample.shared.api.internal.httpClient
+import net.subroh0508.kmmsample.shared.api.json.IdolJson
 
 class IdolsRepository(
     private val client: ImasparqlClient = ImasparqlApiClient(httpClient),

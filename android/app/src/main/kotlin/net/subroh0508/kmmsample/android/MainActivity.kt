@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import net.subroh0508.kmmsample.android.databinding.ActivityMainBinding
-import net.subroh0508.kmmsample.shared.infra.repository.IdolsRepository
 import net.subroh0508.kmmsample.shared.presentation.IdolsViewModel
+import net.subroh0508.kmmsample.shared.presentation.factory
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: IdolsViewModel by viewModels { IdolsViewModel.Factory(IdolsRepository()) }
+    private val viewModel: IdolsViewModel by viewModels(::factory)
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val idolsAdapter by lazy { IdolsAdapter(layoutInflater, viewModel) }

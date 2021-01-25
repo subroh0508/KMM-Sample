@@ -15,6 +15,7 @@ include(
     ":android:components",
     ":ios:components",
     ":shared",
+    ":shared:api",
     ":shared:data:model"
 )
 

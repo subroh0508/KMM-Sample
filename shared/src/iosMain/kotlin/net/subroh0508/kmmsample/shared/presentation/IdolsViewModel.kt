@@ -8,5 +8,4 @@ fun IdolsViewModel.getUiModel(
     block: (IdolsUiModel) -> Unit,
 ) = uiModel.onEach { block(it) }.launchIn(viewModelScope)
 
-@Suppress("FunctionName")
 fun create(): IdolsViewModel = IdolsViewModel.Factory(IdolsRepository()).create()

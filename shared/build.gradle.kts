@@ -20,6 +20,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":shared:data:model"))
+
+                implementation(project(":shared:api"))
                 implementation(Libraries.Serialization.core)
                 implementation(Libraries.Coroutines.core)
                 implementation(Libraries.Ktor.client)
