@@ -10,16 +10,16 @@ kotlin {
             framework {
                 baseName = "iosArtifacts"
 
-                export(project(":shared"))
                 export(project(":shared:data:model"))
+                export(project(":shared:presentation"))
             }
         }
     }
     sourceSets {
         val iosMain by getting {
             dependencies {
-                api(project(":shared"))
                 api(project(":shared:data:model"))
+                api(project(":shared:presentation"))
             }
         }
         val iosTest by getting

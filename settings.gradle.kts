@@ -14,9 +14,9 @@ include(
     ":android:app",
     ":android:components",
     ":ios:components",
-    ":shared",
     ":shared:api",
     ":shared:data:model",
-    ":shared:data:infra"
+    ":shared:data:infra",
+    ":shared:presentation"
 )
 
