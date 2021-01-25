@@ -19,7 +19,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(project(":shared:data:model"))
+                implementation(project(":shared:data:model"))
+                implementation(project(":shared:data:infra"))
 
                 implementation(project(":shared:api"))
                 implementation(Libraries.Serialization.core)

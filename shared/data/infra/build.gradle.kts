@@ -9,9 +9,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(":shared:api"))
                 implementation(project(":shared:data:model"))
                 implementation(Libraries.Serialization.core)
                 implementation(Libraries.Coroutines.core)
+                implementation(Libraries.Ktor.client)
             }
         }
         val commonTest by getting

@@ -5,8 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import net.subroh0508.kmmsample.shared.infra.repository.IdolsRepository
-import kotlin.reflect.KClass
+import net.subroh0508.kmmsample.shared.data.infra.repository.IdolsRepository
 
 class IdolsViewModel(
     private val repository: IdolsRepository,

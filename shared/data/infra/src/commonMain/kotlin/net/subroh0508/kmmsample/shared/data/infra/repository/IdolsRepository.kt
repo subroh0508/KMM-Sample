@@ -1,4 +1,4 @@
-package net.subroh0508.kmmsample.shared.infra.repository
+package net.subroh0508.kmmsample.shared.data.infra.repository
 
 import net.subroh0508.kmmsample.shared.data.model.Idol
 import net.subroh0508.kmmsample.shared.api.ImasparqlClient

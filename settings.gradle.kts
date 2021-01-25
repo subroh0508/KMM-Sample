@@ -16,6 +16,7 @@ include(
     ":ios:components",
     ":shared",
     ":shared:api",
-    ":shared:data:model"
+    ":shared:data:model",
+    ":shared:data:infra"
 )
 
