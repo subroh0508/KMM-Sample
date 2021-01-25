@@ -1,4 +1,4 @@
-package net.subroh0508.kmmsample.shared.presentation
+package net.subroh0508.kmmsample.shared.presentation.common
 
 import kotlinx.coroutines.Job
 

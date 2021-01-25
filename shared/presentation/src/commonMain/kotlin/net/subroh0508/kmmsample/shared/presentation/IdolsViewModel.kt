@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import net.subroh0508.kmmsample.shared.data.infra.repository.IdolsRepository
+import net.subroh0508.kmmsample.shared.presentation.common.LoadState
+import net.subroh0508.kmmsample.shared.presentation.common.ViewModel
+import net.subroh0508.kmmsample.shared.presentation.common.ViewModelFactory
 
 class IdolsViewModel(
     private val repository: IdolsRepository,

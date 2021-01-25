@@ -2,6 +2,7 @@ package net.subroh0508.kmmsample.shared.presentation
 
 import kotlinx.coroutines.flow.StateFlow
 import net.subroh0508.kmmsample.shared.data.model.Idol
+import net.subroh0508.kmmsample.shared.presentation.common.LoadState
 
 data class IdolsUiModel(
     val items: List<Idol> = listOf(),
