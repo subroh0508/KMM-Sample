@@ -7,7 +7,7 @@ import org.kodein.di.bind
 import org.kodein.di.instance
 import org.kodein.di.singleton
 
-object IdolRepositories {
+object IdolsRepositories {
     private const val NAME = "IDOL_REPOSITORIES_MODULE"
 
     val Module get() = DI.Module(NAME)  {
