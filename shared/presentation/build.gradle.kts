@@ -12,6 +12,7 @@ kotlin {
                 implementation(project(":shared:data:model"))
                 implementation(project(":shared:data:infra"))
                 implementation(Libraries.Coroutines.core)
+                implementation(Libraries.Kodein.core)
             }
         }
         val commonTest by getting
@@ -19,6 +20,8 @@ kotlin {
             dependencies {
                 implementation(Libraries.Jetpack.viewModel)
                 implementation(Libraries.Jetpack.commonJava8)
+                implementation(Libraries.Kodein.android)
+                implementation(Libraries.Kodein.androidX)
             }
         }
         val androidTest by getting

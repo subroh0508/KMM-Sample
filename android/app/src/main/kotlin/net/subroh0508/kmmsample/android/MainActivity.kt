@@ -15,12 +15,19 @@ import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import net.subroh0508.kmmsample.android.components.di.Main
 import net.subroh0508.kmmsample.android.databinding.ActivityMainBinding
 import net.subroh0508.kmmsample.shared.presentation.IdolsViewModel
-import net.subroh0508.kmmsample.shared.presentation.factory
+import net.subroh0508.kmmsample.shared.presentation.di.IdolsViewModelDI
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.direct
+import org.kodein.di.instance
 
-class MainActivity : AppCompatActivity() {
-    private val viewModel: IdolsViewModel by viewModels(::factory)
+class MainActivity : AppCompatActivity(), DIAware {
+    override val di: DI = IdolsViewModelDI(Main.Module)
+
+    private val viewModel: IdolsViewModel by viewModels { di.direct.instance<IdolsViewModel.Factory>() }
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val idolsAdapter by lazy { IdolsAdapter(layoutInflater, viewModel) }
