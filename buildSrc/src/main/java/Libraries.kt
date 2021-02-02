@@ -59,5 +59,7 @@ object Libraries {
         private const val version = "7.2.0"
 
         const val core = "org.kodein.di:kodein-di:$version"
+        const val android = "org.kodein.di:kodein-di-framework-android-core:$version"
+        const val androidX = "org.kodein.di:kodein-di-framework-android-x:$version"
     }
 }

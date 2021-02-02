@@ -7,5 +7,3 @@ import net.subroh0508.kmmsample.shared.data.infra.repository.IdolsRepository
 fun IdolsViewModel.getUiModel(
     block: (IdolsUiModel) -> Unit,
 ) = uiModel.onEach { block(it) }.launchIn(viewModelScope)
-
-fun create(): IdolsViewModel = IdolsViewModel.Factory(IdolsRepository()).create()
