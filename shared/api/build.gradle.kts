@@ -4,9 +4,6 @@ plugins {
 }
 
 kotlin {
-    android()
-    ios()
-
     sourceSets {
         val commonMain by getting {
             dependencies {

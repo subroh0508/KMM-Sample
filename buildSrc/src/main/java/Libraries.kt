@@ -54,4 +54,10 @@ object Libraries {
         const val client = "com.squareup.okhttp3:okhttp:$version"
         const val loggingIntercerptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
+
+    object Kodein {
+        private const val version = "7.2.0"
+
+        const val core = "org.kodein.di:kodein-di:$version"
+    }
 }
