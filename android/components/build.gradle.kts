@@ -6,6 +6,7 @@ dependencies {
     implementation(project(":shared:api"))
     implementation(project(":shared:data:infra"))
     implementation(project(":shared:data:model"))
+    implementation(Libraries.Ktor.client)
     implementation(Libraries.Jetpack.material)
     implementation(Libraries.Jetpack.appCompat)
     implementation(Libraries.Jetpack.activity)
