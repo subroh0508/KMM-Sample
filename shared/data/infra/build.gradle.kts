@@ -3,6 +3,9 @@ plugins {
 }
 
 kotlin {
+    android()
+    ios()
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -11,6 +14,7 @@ kotlin {
                 implementation(Libraries.Serialization.core)
                 implementation(Libraries.Coroutines.core)
                 implementation(Libraries.Ktor.client)
+                implementation(Libraries.Kodein.core)
             }
         }
         val commonTest by getting
