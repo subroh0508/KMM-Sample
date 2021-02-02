@@ -20,6 +20,11 @@ kotlin {
             dependencies {
                 api(project(":shared:data:model"))
                 api(project(":shared:presentation"))
+
+                implementation(project(":shared:api"))
+                implementation(project(":shared:data:infra"))
+                implementation(Libraries.Ktor.client)
+                implementation(Libraries.Kodein.core)
             }
         }
         val iosTest by getting

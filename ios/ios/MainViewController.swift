@@ -14,7 +14,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var uiModel = IdolsUiModel(items: [], query: nil)
-    private let viewModel = IdolsViewModelKt.create()
+    private let viewModel = Main().createIdolsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
