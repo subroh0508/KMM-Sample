@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import net.subroh0508.kmmsample.android.components.di.Main
 import net.subroh0508.kmmsample.android.databinding.ActivityMainBinding
+import net.subroh0508.kmmsample.shared.components.Main
 import net.subroh0508.kmmsample.shared.presentation.IdolsViewModel
 import net.subroh0508.kmmsample.shared.presentation.di.IdolsViewModelDI
 import org.kodein.di.DI

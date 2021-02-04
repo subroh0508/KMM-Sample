@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform")
+    `android-multiplatform`
 }
 
 kotlin {
+    android()
     ios {
         binaries {
             framework {
@@ -12,21 +13,27 @@ kotlin {
 
                 export(project(":shared:data:model"))
                 export(project(":shared:presentation"))
+                export(Libraries.Kodein.core)
             }
         }
     }
+
     sourceSets {
-        val iosMain by getting {
+        val commonMain by getting {
             dependencies {
                 api(project(":shared:data:model"))
                 api(project(":shared:presentation"))
+                api(Libraries.Kodein.core)
 
                 implementation(project(":shared:api"))
                 implementation(project(":shared:data:infra"))
                 implementation(Libraries.Ktor.client)
-                implementation(Libraries.Kodein.core)
             }
         }
+        val commonTest by getting
+        val androidMain by getting
+        val androidTest by getting
+        val iosMain by getting
         val iosTest by getting
     }
 }
