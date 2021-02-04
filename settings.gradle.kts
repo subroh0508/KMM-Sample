@@ -17,6 +17,7 @@ include(
     ":shared:api",
     ":shared:data:model",
     ":shared:data:infra",
-    ":shared:presentation"
+    ":shared:presentation",
+    ":shared:components"
 )
 
