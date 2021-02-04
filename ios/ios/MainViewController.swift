@@ -10,14 +10,18 @@ import UIKit
 import iosArtifacts
 
 class MainViewController: UIViewController, UISearchBarDelegate {
+    private let di = IdolsViewModelDIKt.IdolsViewModelDI(modules: [Main().Module])
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var uiModel = IdolsUiModel(items: [], query: nil)
-    private let viewModel = Main().createIdolsViewModel()
+    private var uiModel = IdolsUiModel(items: [], query: nil)
+    private var viewModel: IdolsViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel = NativeDIKt.createViewModel(di: di)
 
         searchBar.delegate = self
 
