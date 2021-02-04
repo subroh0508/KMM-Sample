@@ -13,6 +13,7 @@ kotlin {
 
                 export(project(":shared:data:model"))
                 export(project(":shared:presentation"))
+                export(Libraries.Kodein.core)
             }
         }
     }
@@ -22,11 +23,11 @@ kotlin {
             dependencies {
                 api(project(":shared:data:model"))
                 api(project(":shared:presentation"))
+                api(Libraries.Kodein.core)
 
                 implementation(project(":shared:api"))
                 implementation(project(":shared:data:infra"))
                 implementation(Libraries.Ktor.client)
-                implementation(Libraries.Kodein.core)
             }
         }
         val commonTest by getting
