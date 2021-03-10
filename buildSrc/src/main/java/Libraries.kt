@@ -21,13 +21,13 @@ object Libraries {
     }
 
     object Serialization {
-        const val version = "1.0.1"
+        const val version = "1.1.0"
 
         const val core = "org.jetbrains.kotlinx:kotlinx-serialization-json:$version"
     }
 
     object Coroutines {
-        private const val version = "1.4.2-native-mt"
+        private const val version = "1.4.3-native-mt"
 
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
@@ -36,7 +36,7 @@ object Libraries {
     }
 
     object Ktor {
-        private const val version = "1.5.0"
+        private const val version = "1.5.2"
 
         const val client = "io.ktor:ktor-client-core:$version"
         const val clientOkHttp = "io.ktor:ktor-client-okhttp:$version"
